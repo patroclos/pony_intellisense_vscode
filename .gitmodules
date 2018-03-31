@@ -1,0 +1,3 @@
+[submodule "server/protocols"]
+	path = server/protocols
+	url = git@github.com:patroclos/pony_intellisense_protocols.git

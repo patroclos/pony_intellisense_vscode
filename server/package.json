@@ -1,0 +1,21 @@
+{
+	"name": "pony-lang",
+	"description": "POC Pony language server",
+	"version": "0.0.1",
+	"author": "Joshua Jensch <jenschjoshua@gmail.com>",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"protobufjs": "^6.8.4",
+		"vscode-languageserver": "^3.5.0",
+		"vscode-languageserver-types": "^3.5.0"
+	},
+	"scripts": {
+		"compile-protos": "pbjs -t static-module -w commonjs -o src/scope.pb.js protocols/scope.proto && pbts -o src/scope.pb.d.ts src/scope.pb.js",
+		"installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json && npm run compile-protos",
+		"compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+		"watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -w -p ."
+	}
+}

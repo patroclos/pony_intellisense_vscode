@@ -1,0 +1,50 @@
+{
+	"name": "vscode-pony-lang",
+	"description": "VSCode pony languageserver extension",
+	"author": "Joshua Jensch <jenschjoshua@gmail.com>",
+	"publisher": "Joshua Jensch <jenschjoshua@gmail.com>",
+	"license": "MIT",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.16.0"
+	},
+	"categories": [
+		"Languages"
+	],
+	"activationEvents": [
+		"onLanguage:pony"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Pony Language Server Configuration",
+			"properties": {
+				"ponyLang.ponyIntellisensePath": {
+					"scope": "resource",
+					"type": "string",
+					"default": "/usr/local/bin/pony_intellisense_cli",
+					"description": "Path to the pony_intellisense_cli binary."
+				},
+				"ponyLang.ponyPath": {
+					"scope": "window",
+					"type": "string",
+					"default": "/usr/share/pony/packages",
+					"description": "Path to the pony packages folder."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -w -p ./",
+		"update-vscode": "node ./node_modules/vscode/bin/install",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"dependencies": {
+		"spawn-command": "0.0.2-1",
+		"vscode": "^1.1.10",
+		"vscode-languageclient": "^3.4.2"
+	}
+}

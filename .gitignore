@@ -1,0 +1,7 @@
+out
+node_modules
+client/server
+clinet/~/
+server/src/*.pb.d.ts
+server/src/*.pb.js
+.vscode
